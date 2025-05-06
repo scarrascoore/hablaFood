@@ -11,7 +11,7 @@ Perfecto para los exploradores del buen sabor 🍟.
 
 ---
 
-## 🧩 Características
+## 📝 Características
 
 - 👥 Búsqueda por distrito o ubicación actual  
 - 💬 Comentarios y reseñas comunitarias  
@@ -21,7 +21,7 @@ Perfecto para los exploradores del buen sabor 🍟.
 
 ---
 
-## 🛠️ Tecnologías Usadas
+## 💾 Tecnologías Usadas
 
 | Frontend        | Backend         | Base de Datos   | Otros              |
 |-----------------|-----------------|------------------|--------------------|
