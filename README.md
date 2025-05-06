@@ -26,7 +26,7 @@ Perfecto para los exploradores del buen sabor 🍟.
 | Frontend        | Backend         | Base de Datos   | Otros              |
 |-----------------|-----------------|------------------|--------------------|
 | React Native    | Node.js         | MongoDB          | OpenStreetMap API |
-| HTML / CSS      | Express.js      | Firebase (Auth)  | GitHub Actions     |
+| HTML / CSS      | Express.js      |                 | GitHub Actions     |
 
 ---
 
