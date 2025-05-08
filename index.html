@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Habla Food</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/include.js"></script>
 </head>
 <body>
 
@@ -12,10 +13,10 @@
 
 
   <main>
-    <!-- Aquí va el contenido de cada página -->
+    
     <h1>Ubica tu Fast Food favorito</h1>
     <p>Aquí puedes ubicar tus preferencias en comidas y restaurantes que quieres encontrar</p>
-    <!-- botones, imagen, etc. -->
+   
 
     <section>
         <img src="assets/img/01.png">
@@ -25,24 +26,15 @@
         <img src="assets/img/05.png">       
     </section>
 
-    
+
   </main>
 
   <div id="footer-placeholder"></div>
 
 
 
-  <script>
-    // Carga dinámica de header y footer
-    window.addEventListener("DOMContentLoaded", () => {
-      fetch("view/header.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("header-placeholder").innerHTML = data);
+  
 
-      fetch("view/footer.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("footer-placeholder").innerHTML = data);
-    });
-  </script>
+  
 </body>
 </html>
