@@ -1,4 +1,4 @@
-# ✨ Proyecto: *FastFood?* 🍔📍  
+# ✨ Proyecto: *habla Food?* 🍔📍  
 *Tu asistente para encontrar comida rápida local, sin complicaciones.*
 
 ---
@@ -6,7 +6,7 @@
 ## 🚀 Descripción
 
 ¿Cansado de solo ver McDonald's y KFC en los mapas?  
-**FastFood?** te ayuda a descubrir **locales pequeños y sabrosos** cerca de ti o por distrito, ¡clasificados por precios y valoraciones de la comunidad!  
+**habla Food?** te ayuda a descubrir **locales pequeños y sabrosos** cerca de ti o por distrito, ¡clasificados por precios y valoraciones de la comunidad!  
 Perfecto para los exploradores del buen sabor 🍟.
 
 ---
