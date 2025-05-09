@@ -30,5 +30,5 @@ Perfecto para los exploradores del buen sabor 🍟.
 
 ---
 
-ALUMNOS:
+ALUMNOS DEL CURSO:
 
