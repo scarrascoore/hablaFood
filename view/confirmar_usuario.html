@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmación de Cuenta | Habla Food</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <div id="mensaje-confirmacion">
+      <p>Procesando confirmación de tu cuenta...</p>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("token");
+
+      if (!token) {
+        document.getElementById("mensaje-confirmacion").innerHTML = "<p>Token inválido.</p>";
+        return;
+      }
+
+      try {
+        const response = await fetch(`../controller/ConfirmarUsuario.php?token=${token}`);
+        const result = await response.text();
+        document.getElementById("mensaje-confirmacion").innerHTML = `<p>${result}</p>`;
+      } catch (error) {
+        document.getElementById("mensaje-confirmacion").innerHTML = "<p>Error al confirmar cuenta.</p>";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,12 +1,23 @@
 header {
-    width: 100%;
-    background-color: #e31313;
+  width: 100%;
+  background-color: #e31313;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   }
 
-  footer{
-    width: 100%;
-    background-color: #020202;
+  footer {
+  width: 100%;
+  background-color: #020202;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   }
+
 
   .logo{
     color: #ffffff;
@@ -83,13 +94,7 @@ header {
     padding: 10px 20px;
   }
   
-  footer {
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
+
 
 
   .copyright-bar {
@@ -116,3 +121,200 @@ header {
     }
   }
   
+
+ 
+ /* --- Contenedor principal --- */
+.register-container {
+  margin-top: 140px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 240px);
+  padding: 20px;
+}
+
+/* --- Caja de registro --- */
+.register-box {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Títulos --- */
+.register-title h1 {
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.register-subtitle p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+/* --- Botones --- */
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-google,
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-google {
+  background-color: #db4437;
+  color: white;
+}
+
+.btn-login {
+  background-color: #ffffff;
+  color: black;
+  border: 2px solid black;
+}
+
+.btn-google img,
+.btn-login img {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Pie del registro --- */
+.register-footer {
+  font-size: 0.95em;
+}
+
+.register-footer a {
+  color: #e31313;
+  font-weight: bold;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 500px) {
+  .register-box {
+    padding: 10px;
+  }
+
+  .btn-google,
+  .btn-login {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+
+/* --- Formulario de Registro --- */
+
+.registro-container {
+    
+  max-width: 500px;
+  margin: 220px auto 100px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.registro-form .form-group {
+  margin-bottom: 20px;
+}
+
+.password-group .input-group-text {
+  cursor: pointer;
+}
+
+
+
+/* TARJETAS*/
+.tarjeta-contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.tarjeta {
+  width: 280px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tarjeta:hover {
+  transform: scale(1.03);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tarjeta-cuerpo {
+  padding: 15px;
+}
+
+.tarjeta-cuerpo p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+.tarjeta-cuerpo h5 {
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: #e31313;
+}
+
+.tarjeta-cuerpo a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #e31313;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tarjeta-cuerpo a:hover {
+  text-decoration: underline;
+}
+
+.ubicacion {
+  margin-top: 8px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .tarjeta-contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+}
