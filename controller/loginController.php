@@ -10,27 +10,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = $db->connect();
 
         try {
-            // Buscar al usuario por correo
             $stmt = $conn->prepare("SELECT * FROM usuarios WHERE correo = :correo LIMIT 1");
             $stmt->bindParam(':correo', $correo);
             $stmt->execute();
 
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
+           
             if ($usuario && password_verify($passw, $usuario['contrasena'])) {
-                // Inicio de sesión exitoso, redirige
-                header("Location: ../view/registrouser_ok.html");
-                exit;
+                echo json_encode([
+                    'success' => true,
+                    'id' => $usuario['id'],
+                    'nombre' => $usuario['nombres']                    
+                ]);
             } else {
-                // Credenciales incorrectas
-                header("Location: ../view/login_error.html");
-                exit;
+                echo json_encode(['success' => false, 'error' => 'Credenciales incorrectas.']);
             }
         } catch (PDOException $e) {
-            echo "Error en la consulta: " . $e->getMessage();
+            echo json_encode(['success' => false, 'error' => 'Error en el servidor.']);
         }
     } else {
-        echo "Correo y contraseña son obligatorios.";
+        echo json_encode(['success' => false, 'error' => 'Datos incompletos.']);
     }
 }
 ?>
+
+

@@ -1,0 +1,170 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #fafafa;
+}
+
+.registro-local {
+  padding: 160px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.form-local {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+.form-left, .form-right {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .form-local {
+    flex-direction: column;
+  }
+
+  .form-left, .form-right {
+    flex: 1 1 100%;
+  }
+
+  .btn-registrar {
+    width: 100%;
+  }
+
+  .rango-precios {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+.form-local label {
+  font-weight: bold;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.form-local input[type="text"],
+.form-local input[type="email"],
+.form-local textarea,
+.form-local input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.rango-precios label {
+  display: block;
+  margin: 0.3rem 0;
+}
+
+.estrellas {
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.btn-registrar {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-registrar:hover {
+  background-color: #e64a19;
+}
+
+
+
+/*   ESTRELLAS */
+
+.estrellas {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.estrella {
+  color: transparent;
+  -webkit-text-stroke: 1px gold;
+  transition: all 0.2s ease-in-out;
+}
+
+.estrella.seleccionada {
+  color: gold;
+  -webkit-text-stroke: 0px;
+}
+
+
+/* SUGERENCIA DE JSON POR DIRECCION*/
+
+.sugerenciasdireccion {
+  list-style: none;
+  padding: 0;
+  margin-top: 162px;
+  background-color: white;
+  border: 0px solid #ccc;
+  max-height: 100px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 100;
+  width: calc(30% - 2rem);
+}
+
+.sugerenciasdireccion li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.sugerenciasdireccion li:hover {
+  background-color: #eee;
+}
+
+/* SUGERENCIA DE JSON POR DISTRITOS*/
+
+.sugerencias {
+  list-style: none;
+  padding: 0;
+  margin-top: 248px;
+  background-color: white;
+  border: 0px solid #ccc;
+  max-height: 100px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 100;
+  width: calc(30% - 2rem);
+}
+
+.sugerencias li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.sugerencias li:hover {
+  background-color: #eee;
+}
+
+

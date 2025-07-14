@@ -1,0 +1,118 @@
+/* Confirmación Registro - Habla Food */
+
+.cr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 78vh;
+  margin-top: 90px;
+  padding: 20px;
+}
+
+.cr-box {
+  background-color: #fff;
+  border: 2px solid #e15a06;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.cr-title h1 {
+  color: #333;
+  font-size: 1.9em;
+  margin-bottom: 15px;
+}
+
+.cr-subtitle p {
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.cr-subtitle strong {
+  color: #e31313;
+  font-size: 1.1em;
+}
+
+.cr-tarjeta-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.cr-tarjeta {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+.cr-tarjeta img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cr-tarjeta-cuerpo {
+  margin-top: 10px;
+}
+
+.cr-tarjeta-cuerpo p {
+  margin: 5px 0;
+  color: #444;
+  font-size: 0.9em;
+}
+
+.cr-tarjeta-cuerpo h5 {
+  margin: 5px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.cr-tarjeta-cuerpo a {
+  color: #007bff;
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+.cr-tarjeta-cuerpo a:hover {
+  text-decoration: underline;
+}
+
+.cr-ubicacion {
+  margin-top: 6px;
+  color: #000;
+  font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 750px) {
+  .cr-tarjeta-contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  margin-top: 250px;
+  padding: 20px;
+}
+
+  .cr-tarjeta {
+    width: 90%;
+  }
+}

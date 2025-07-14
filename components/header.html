@@ -1,20 +1,49 @@
 <header>
-  <div class="top-bar">
-    <a>Suscríbete y logra un cupón de descuento del 20%</a>
-  </div>
-  <nav class="main-nav">
-    <div class="logo">Habla Food ?</div>
-    <input type="search" placeholder="Buscar..." />
-    <div class="user-section">
-      <span><a>Puntos</a></span>
-      <span id="saludo-usuario">Hola</span>
+  <nav class="hf-main-nav">
+    <div class="hf-logo"><a href="../index.html">Habla Food ?</a></div>
+    
+
+    <div class="hf-user-section" id="user-section">
+      <span><a href="../view/login.html" class="hf-btn-login-unico">Iniciar Sesion</a></span>
+      <span id="saludo-usuario"></span>
+      <div id="menu-usuario" style="display: none;">
+        <button id="cerrar-sesion" class="btncerrarsesion">Cerrar sesión</button>
+      </div>
     </div>
+    
   </nav>
-  <div class="barmenu">
-    <a href="#">Categorias</a>
-    <a href="#">Mejores Comentarios</a>
-    <a href="#">De 5 a 4 estrellas</a>
-    <a href="#">Registra pe!</a>
-    <a href="../view/reg_userPrincipal.html">Registrate!</a>
+
+  <div class="hf-submenu">
+    <a href="../view/acercade.html">Quienes Somos</a>
+    <a href="../view/toplocales.html">De 5 a 4 estrellas</a>
+    <a href="../view/registro_local.html">Registra pe!</a>
+    <a href="../view/reg_userPrincipal.html">¡Regístrate!</a>
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const nombre = localStorage.getItem("nombre_usuario");
+    const saludo = document.getElementById("saludo-usuario");
+    const menu = document.getElementById("menu-usuario");
+
+    if (nombre) {
+      saludo.textContent = `Hola, ${nombre}`;
+      menu.style.display = "inline";
+    }
+
+    // Mostrar menú al hacer clic en el saludo
+    saludo.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "none" ? "inline" : "none";
+    });
+
+    // Cerrar sesión
+    document.getElementById("cerrar-sesion").addEventListener("click", () => {
+      localStorage.removeItem("nombre_usuario");
+      window.location.href = "../view/login.html";
+    });
+  });
+</script>
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil de Usuario - Habla Food</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/perfil_usuario.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script defer src="../assets/js/include.js"></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main class="perfil-container">
+    <h2>Mi Perfil</h2>
+    <form id="form-perfil">
+      <div class="perfil-campo">
+        <label for="nombres">Nombres</label>
+        <input type="text" id="nombres" name="nombres" required>
+      </div>
+      <div class="perfil-campo">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+      </div>
+      <div class="perfil-campo">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" required>
+      </div>
+      <div class="perfil-campo">
+        <label for="celular">Celular</label>
+        <input type="text" id="celular" name="celular" required>
+      </div>
+      <div class="enlace-recuperar">
+        <a href="../view/recuperar_contrasena.html">Cambiar contraseña</a>
+      </div>
+      <button type="submit" class="btn-guardar">Guardar cambios</button>
+    </form>
+  </main>
+
+  <!-- Popup -->
+<div id="popup-exito" class="popup-exito" style="display: none;">
+  <div class="popup-contenido">
+    <h2>¡Perfil actualizado!</h2>
+    <p id="resumen-datos"></p>
+    <button id="btn-ir-inicio">Ir al inicio</button>
+  </div>
+</div>
+
+
+  <div id="footer-placeholder"></div>
+
+  
+  <script src="../assets/js/perfil_usuario.js"></script>
+</body>
+</html>

@@ -2,57 +2,124 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Detalle de Local</title>
+  <title>Detalle del Local</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
-  <script defer src="../assets/js/include.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script defer src="../assets/js/include.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .detalle-container {
+      max-width: 900px;
+      margin: 189.5px auto;
+      padding: 20px;
+    }
+
+    .detalle-nombre {
+      font-size: 2em;
+      margin: 15px 0;
+      color: #e31313;
+    }
+
+    .detalle-valoracion {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #ff9900;
+    }
+
+    .detalle-comentario-link {
+      color: #007BFF;
+      cursor: pointer;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .comentario-box {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .comentario-box textarea {
+      width: 100%;
+      height: 100px;
+      resize: none;
+      padding: 10px;
+      font-size: 1em;
+    }
+
+    #map {
+      height: 300px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-  <div id="header-placeholder"></div>
+<div id="header-placeholder"></div>
+  <div class="detalle-container">
+    <h1 id="nombre-local" class="detalle-nombre">Nombre del Local</h1>
+    <div id="valoracion-promedio" class="detalle-valoracion">★ 0.0</div>
 
-  <main class="detalle-local-container">
-    <h1>DETALLE DE LOCAL</h1>
+    <div id="comentario-link" class="detalle-comentario-link">Deja un comentario...!</div>
 
-    <section class="detalle-content">
-      <div class="local-info">
-        <img src="../assets/img/pollo.png" alt="Foto del local">
-        <h2>Local Chicharroncitos</h2>
-        <p>★★★★★</p>
-        <textarea placeholder="Deja un comentario..."></textarea>
-        <button>Publicar</button>
-      </div>
+    <div id="comentario-box" class="comentario-box">
+      <textarea maxlength="300" placeholder="Escribe tu comentario aquí..."></textarea>
+    </div>
 
-      <div class="mapa-info">
-        <img src="../assets/img/mapa-ejemplo.png" alt="Mapa del local"> <!-- Puedes usar un mapa real con embed -->
-      </div>
-    </section>
+    <div id="map"></div>
+  </div>
 
-    <section class="resenas">
-      <div class="resena">
-        <strong>Julio Chauca</strong>
-        <p>Local Chicharroncitos</p>
-        <p>64 reseñas • 4 fotos</p>
-        <p>Comentario de ejemplo de usuario.</p>
-        <button>👍 Me gusta</button>
-      </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
 
-      <div class="resena">
-        <strong>Elvita Rivera</strong>
-        <p>Local Chaufa 1</p>
-        <p>45 reseñas • 4 fotos</p>
-        <p>Comentario de ejemplo de usuario.</p>
-        <button>👍 Me gusta</button>
-      </div>
+      if (!id) {
+        alert("ID no especificado.");
+        return;
+      }
 
-      <div class="resena">
-        <strong>Lino Ventura</strong>
-        <p>Local Caldo Boris</p>
-        <p>34 reseñas • 4 fotos</p>
-        <p>Comentario de ejemplo de usuario.</p>
-        <button>👍 Me gusta</button>
-      </div>
-    </section>
-  </main>
+      try {
+        const res = await fetch(`../controller/detalleLocalController.php?id=${id}`);
+        const data = await res.json();
 
-  <div id="footer-placeholder"></div>
+        if (data.error) {
+          document.getElementById('nombre-local').textContent = 'Local no encontrado';
+          return;
+        }
+
+        // Mostrar nombre y valoración
+        document.getElementById('nombre-local').textContent = data.nombre_local;
+        document.getElementById('valoracion-promedio').textContent = `★ ${parseFloat(data.valoracion).toFixed(1)}`;
+
+        // Mostrar ubicación si existen coordenadas
+        if (data.latitud && data.longitud) {
+          const lat = parseFloat(data.latitud);
+          const lng = parseFloat(data.longitud);
+
+          const map = L.map('map').setView([lat, lng], 16);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+          }).addTo(map);
+
+          L.marker([lat, lng]).addTo(map)
+            .bindPopup(data.nombre_local)
+            .openPopup();
+        } else {
+          document.getElementById('map').innerHTML = 'Ubicación no disponible';
+        }
+
+      } catch (error) {
+        console.error("Error cargando los datos del local:", error);
+        document.getElementById('map').innerHTML = 'Error al cargar el mapa.';
+      }
+    });
+  </script>
+<div id="footer-placeholder"></div>
 </body>
 </html>

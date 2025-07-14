@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambiar Contraseña</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/popUp.css">
+  <script defer src="../assets/js/include.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="header-placeholder"></div>
+  <main class="popup-main-container">
+    <h2 class="popup-title">Cambiar Contraseña</h2>
+
+<div id="token-error" class="text-danger mb-3" style="display: none;"></div>
+<div id="boton-volver" style="display: none;">
+  <a href="../view/recuperar_contrasena.html" class="btn btn-danger mt-2">Volver a intentar</a>
+</div>
+
+
+    <form id="form-cambio" style="display: none;" action="../controller/ProcesarNuevaContrasena.php" method="POST">
+      <input type="hidden" id="token" name="token">
+
+      <div class="popup-form-group">
+        <label for="nueva_contrasena">Nueva Contraseña</label>
+        <input type="password" id="nueva_contrasena" name="nueva_contrasena" class="form-control" required>
+      </div>
+
+      <div class="popup-form-group">
+        <label for="confirmar_contrasena">Confirmar Contraseña</label>
+        <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-danger mt-3">Guardar Contraseña</button>
+    </form>
+  </main>
+
+  
+  <script>
+ 
+document.addEventListener("DOMContentLoaded", async () => {
+  const token = sessionStorage.getItem("token");
+
+  if (!token || token.length !== 5) {
+    document.getElementById("token-error").textContent = "Token inválido o faltante.";
+    document.getElementById("token-error").style.display = "block";
+    document.getElementById("boton-volver").style.display = "block";
+    return;
+  }
+
+  try {
+    const response = await fetch(`../controller/ValidarToken.php?token=${token}`);
+    const result = await response.json();
+
+    if (result.valido) {
+      document.getElementById("token").value = token;
+      document.getElementById("form-cambio").style.display = "block";
+    } else {
+      document.getElementById("token-error").textContent = result.mensaje || "Token inválido o expirado.";
+      document.getElementById("token-error").style.display = "block";
+      document.getElementById("boton-volver").style.display = "block";
+    }
+  } catch (error) {
+    document.getElementById("token-error").textContent = "Error al verificar el token.";
+    document.getElementById("token-error").style.display = "block";
+    document.getElementById("boton-volver").style.display = "block";
+  }
+});
+
+  </script>
+
+  <!-- POPUP de éxito -->
+<div id="popup-success" class="popup-overlay" style="display: none;">
+  <div class="popup-box text-center">
+    <h4 class="mb-3 text-success">¡Contraseña actualizada exitosamente!</h4>
+    <p>Tu nueva contraseña ha sido registrada con éxito.<br>Ya puedes iniciar sesión en Habla Food.</p>
+    <button class="btn btn-success mt-3" onclick="irAlLogin()">Iniciar sesión</button>
+  </div>
+</div>
+
+
+<script>
+  function mostrarPopupExito() {
+    document.getElementById("popup-success").style.display = "flex";
+  }
+
+  function irAlLogin() {
+    window.location.href = "../view/login.html";
+  }
+</script>
+
+<div id="footer-placeholder"></div>
+
+</body>
+</html>

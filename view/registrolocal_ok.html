@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro Exitoso - Habla Food</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/confirmacionDeRegistro.css" />
+  <script defer src="../assets/js/toplocales.js"></script>
+  <script defer src="../assets/js/include.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const nombreLocal = params.get("nombre_local");
+
+      if (nombreLocal) {
+        document.getElementById("nombre-local").textContent = decodeURIComponent(nombreLocal);
+      }
+    });
+  </script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="cr-container">
+    <div class="cr-box">
+      <div class="cr-title">
+        <h1>¡Bienvenido a la familia Habla Food!</h1>
+      </div>
+      <div class="cr-subtitle">
+        <p><strong><span id="nombre-local"></span>!</strong></p>
+        <p>¡Tu sabor ya está en el mapa!</p>
+        <p>Tu local ya forma parte de la red gastronómica más vibrante. Ahora el mundo está a un paso de descubrir tus sabores. ¡Comparte tu esencia y deja que todos te encuentren!</p>
+      </div>
+
+      <div class="cr-tarjeta-contenedor" id="top-locales-container"></div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+</html>
+

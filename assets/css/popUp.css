@@ -1,0 +1,95 @@
+/* Fondo oscuro del popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Contenido centrado */
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Página de recuperar */
+.popup-main-container {
+  max-width: 420px;
+  margin: 283px auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  border: 2px solid #0bbaa9;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.popup-title {
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+.popup-form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 14px;
+  color: #444;
+}
+
+.text-danger{
+font-size: 12px;
+margin-top: 5px;
+}
+
+.btn-danger{
+font-size: 16px;
+margin-top: 15px;
+}
+
+.popup-error {
+  color: #e53935;
+  font-size: 0.9em;
+  margin-top: 6px;
+}
+
+
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+
